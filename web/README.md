@@ -5,7 +5,7 @@ This project is a challenge based on a transaction control panel, with a list of
 # How to run the project in my machine?
 
 ## Clone this repository
-Run in a folder of your preferency the command `git clone https://github.com/VitorPinheiro29/transaction-control-panel.git`
+Run in a folder of your preferency the command `git clone https://github.com/VitorPinheiro29/transaction-panel-control`
 
 # Run the JSON API
 After cloning the project on your machine, the first step is to open the folder `server`
