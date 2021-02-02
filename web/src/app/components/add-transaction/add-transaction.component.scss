@@ -1,0 +1,46 @@
+.dialog-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+.dialog-container h3 {
+  font: 20px Poppins;
+  font-weight: 500;
+}
+
+.mat-dialog-content {
+  display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+.mat-dialog-content form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.mat-dialog-content form mat-form-field {
+  width: 100%;
+}
+
+.mat-dialog-content form .dialog-form-line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mat-dialog-content form .dialog-form-line mat-form-field {
+  width: 48%;
+}
+
+.mat-dialog-content form .dialog-actions {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+
+	margin-top: 10px;
+}

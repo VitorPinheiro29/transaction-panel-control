@@ -1,0 +1,17 @@
+.transactions-container {
+	padding: 5%;
+	padding-top: 5%;
+}
+
+.transactions-container .filter-actions {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+	width: 200px;
+}
+
+.transactions-container .register-transaction-button {
+	display: flex;
+	justify-content: flex-end;
+	margin: 25px 0 25px 0;
+}

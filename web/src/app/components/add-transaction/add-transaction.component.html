@@ -1,0 +1,64 @@
+<div class="dialog-container">
+	<h3 mat-dialog-title>Adicionar Transação</h3>
+	<div mat-dialog-content>
+		<form [formGroup]="transactionForm">
+			<div class="dialog-form-line">
+				<mat-form-field appearance="outline">
+					<mat-label>Valor</mat-label>
+					<input matInput 
+					currencyMask 
+					placeholder="Valor da transação" 
+					formControlName="value" 
+					[options]="{ align: 'left', prefix: 'R$ ', thousands: '.', decimal: ',' }" 
+					required/>
+					<mat-icon matSuffix>attach_money</mat-icon>
+					<mat-error>{{getErrorMessage('value')}}</mat-error>
+					<mat-hint input-helper [input-helper-text]="'O que inserir neste campo?'" [input-helper-messages]="[
+						'Insira o valor da transação']">
+						<mat-icon>info</mat-icon>
+					</mat-hint>
+				</mat-form-field>
+			</div>
+
+			<div class="dialog-form-line">
+				<mat-form-field appearance="outline">
+					<mat-label>Estabelecimento</mat-label>
+					<input matInput placeholder="CNPJ do estabelecimento" formControlName="establishment" mask="00.000.000/0000-00" required/>
+					<mat-icon matSuffix>store_mall_directory</mat-icon>
+					<mat-error>{{getErrorMessage('establishment')}}</mat-error>
+					<mat-hint input-helper [input-helper-text]="'O que inserir neste campo?'" [input-helper-messages]="[
+						'Insira o CNPJ do seu estabelecimento']">
+						<mat-icon>info</mat-icon>
+					</mat-hint>
+				</mat-form-field>
+
+				<mat-form-field appearance="outline">
+					<mat-label>Cliente</mat-label>
+					<input matInput placeholder="CPF ou CNPJ do cliente" formControlName="client" mask="000.000.000-00 || 00.000.000/0000-00" required/>
+					<mat-icon matSuffix>account_circle</mat-icon>
+					<mat-error>{{getErrorMessage('client')}}</mat-error>
+					<mat-hint input-helper [input-helper-text]="'O que inserir neste campo?'" [input-helper-messages]="[
+						'Insira o CPF ou CNPJ do cliente']">
+						<mat-icon>info</mat-icon>
+					</mat-hint>
+				</mat-form-field>
+			</div>
+	
+			<mat-form-field appearance="outline">
+				<mat-label>Descrição</mat-label>
+				<input matInput placeholder="Descrição da transação" formControlName="description" required/>
+				<mat-icon matSuffix>description</mat-icon>
+				<mat-error>{{getErrorMessage('description')}}</mat-error>
+				<mat-hint input-helper [input-helper-text]="'O que inserir neste campo?'" [input-helper-messages]="[
+					'Insira a descrição da transação']">
+					<mat-icon>info</mat-icon>
+				</mat-hint>
+			</mat-form-field>
+			
+			<div class="dialog-actions">
+				<app-cancel-button mat-dialog-close></app-cancel-button>
+				<app-add-button [disabled]="!transactionForm.valid" (click)="createTransaction(transactionForm.value)"></app-add-button> 
+			</div>
+		</form>
+	</div>
+</div>

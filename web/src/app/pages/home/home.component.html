@@ -1,0 +1,32 @@
+<section>
+  <app-navbar></app-navbar>
+</section>
+<section class="transactions-container">
+	<h1>Controle de transações</h1>
+	<form *ngIf="filterForm" [formGroup]="filterForm">
+    <mat-expansion-panel (opened)="cardFilterOpened = true" (closed)="cardFilterOpened = false" [expandedHeight]="'190px'"
+    [expanded]="false">
+			<mat-expansion-panel-header>
+				<mat-panel-title> + Filtro </mat-panel-title>
+			</mat-expansion-panel-header>
+
+			<div>
+				<mat-form-field appearance="outline">
+					<mat-label> CNPJ </mat-label>
+					<input matInput formControlName="establishmentDocumentNumber" mask="00.000.000/0000-00"/>
+					<mat-error>{{getErrorMessage('establishmentDocumentNumber')}}</mat-error>
+				</mat-form-field>
+			</div>
+
+			<div class="filter-actions">
+        <app-filter-button [disabled]="!filterForm.valid" (click)="loadModel()"></app-filter-button>
+        <app-clear-button (click)="clearFilter()"></app-clear-button>
+      </div>
+    </mat-expansion-panel>
+	</form>
+
+  <div class="register-transaction-button">
+    <app-add-button (click)="createTransaction()"></app-add-button> 
+  </div>
+  <app-data-table [headers]="headers" [loadFunction]="loadData" [filterFunction]="loadDataByFilter" [clearFilterFunction]="clearFilter" [async]="true"></app-data-table>
+</section>
